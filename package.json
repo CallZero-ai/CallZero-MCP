@@ -1,6 +1,6 @@
 {
-  "name": "@callzero/mcp",
-  "version": "2.0.0",
+  "name": "@callzero/mcp-server",
+  "version": "0.0.1",
   "description": "MCP server for CallZero AI phone call automation",
   "type": "module",
   "main": "dist/index.js",
@@ -46,11 +46,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/callzero/callzero.git",
-    "directory": "packages/callzero-mcp"
+    "url": "git+https://github.com/CallZero-ai/CallZero-MCP.git"
   },
-  "homepage": "https://callzero.ai",
+  "homepage": "https://github.com/CallZero-ai/CallZero-MCP#readme",
   "bugs": {
-    "url": "https://github.com/callzero/callzero/issues"
-  }
+    "url": "https://github.com/CallZero-ai/CallZero-MCP/issues"
+  },
+  "packageManager": "pnpm@10.0.0"
 }
