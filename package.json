@@ -1,0 +1,56 @@
+{
+  "name": "@callzero/mcp",
+  "version": "2.0.0",
+  "description": "MCP server for CallZero AI phone call automation",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "callzero-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "./test-with-inspector.sh",
+    "security-check": "npm audit --audit-level=high",
+    "prepublishOnly": "npm run security-check && npm run build",
+    "pack-test": "npm pack && tar -tzf *.tgz | head -20",
+    "clean": "rm -rf dist/ node_modules/ *.tgz *.log"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "phone-calls",
+    "automation",
+    "callzero"
+  ],
+  "author": "CallZero",
+  "license": "MIT",
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.1",
+    "node-fetch": "^3.3.2",
+    "zod": "^4.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/callzero/callzero.git",
+    "directory": "packages/callzero-mcp"
+  },
+  "homepage": "https://callzero.ai",
+  "bugs": {
+    "url": "https://github.com/callzero/callzero/issues"
+  }
+}

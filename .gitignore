@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+*.tsbuildinfo
+*.tgz
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test files
+test-*.sh
+*.test.js
+coverage/
+.nyc_output/
+# Keep test-inspector.js as it's useful for testing
+!test-inspector.js
+
+# Temporary files
+tmp/
+temp/
+*.tmp
