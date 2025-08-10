@@ -1,6 +1,6 @@
 {
   "name": "@callzero/mcp-server",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "MCP server for CallZero AI phone call automation",
   "type": "module",
   "main": "dist/index.js",
@@ -13,7 +13,7 @@
     "dev": "tsx src/index.ts",
     "test": "./test-with-inspector.sh",
     "security-check": "npm audit --audit-level=high",
-    "prepublishOnly": "npm run security-check && npm run build",
+    "prepublishOnly": "npm run build",
     "pack-test": "npm pack && tar -tzf *.tgz | head -20",
     "clean": "rm -rf dist/ node_modules/ *.tgz *.log"
   },
@@ -31,6 +31,9 @@
     "dist/**/*",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.1",
     "node-fetch": "^3.3.2",

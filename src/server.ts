@@ -52,8 +52,8 @@ export class CallZeroMcpServer {
 
     this.server = new Server(
       {
-        name: "@callzero/mcp",
-        version: "1.0.0",
+        name: "@callzero/mcp-server",
+        version: "0.0.2",
       },
       {
         capabilities: {

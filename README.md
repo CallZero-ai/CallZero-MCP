@@ -1,4 +1,4 @@
-# @callzero/mcp
+# @callzero/mcp-server
 
 MCP (Model Context Protocol) server for CallZero AI phone call automation. This package allows MCP clients like Claude Desktop, ChatGPT, and other AI assistants to make phone calls through the CallZero service.
 
@@ -17,10 +17,10 @@ MCP (Model Context Protocol) server for CallZero AI phone call automation. This 
 
 ```bash
 # Install globally
-npm install -g @callzero/mcp
+npm install -g @callzero/mcp-server
 
 # Or use with npx (no installation needed)
-npx @callzero/mcp
+npx @callzero/mcp-server
 ```
 
 ### Configuration
@@ -53,7 +53,7 @@ Or with npx:
   "mcpServers": {
     "callzero": {
       "command": "npx",
-      "args": ["@callzero/mcp"],
+      "args": ["@callzero/mcp-server"],
       "env": {
         "CALLZERO_API_KEY": "callzero_your_api_key_here"
       }
@@ -239,7 +239,7 @@ This MCP server acts as a transport layer between MCP clients and CallZero HTTP 
 ```
 MCP Client (Claude, ChatGPT, etc.)
     ↓ MCP Protocol
-@callzero/mcp (this package)
+@callzero/mcp-server (this package)
     ↓ HTTPS Requests
 callzero.ai/api/tools/*
     ↓ Business Logic

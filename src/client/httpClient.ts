@@ -103,7 +103,7 @@ export class CallZeroHttpClient {
       headers: {
         Authorization: `Bearer ${this.apiKey}`,
         "Content-Type": "application/json",
-        "User-Agent": "@callzero/mcp/1.0.0",
+        "User-Agent": "@callzero/mcp-server/0.0.1",
       },
       body: JSON.stringify(data),
     });

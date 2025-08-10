@@ -5,8 +5,16 @@ import { MakeCallInputSchema, type MakeCallInput } from "../schemas.js";
 export function createMakeCallTool(client: CallZeroHttpClient): Tool {
   return {
     name: "make_call",
-    description:
-      "Make an outbound phone call through CallZero AI assistant. Can schedule calls for future times or initiate immediately.",
+    description: `Initiates or schedules phone calls by spawning a new AI agent that will conduct the conversation independently.
+
+      The calling agent operates autonomously with these capabilities:
+      • get_additional_info: Requests missing information from the principal via SMS when businesses ask for details not in the agent's context
+      • forward_to_principal: Transfers the active call to the principal's phone number for direct conversation
+      • Navigation: Handles phone trees, voicemail systems, and basic business interactions
+
+      SCHEDULING: Pass natural language date/time directly to scheduleAt parameter. Users can say "tomorrow at 2pm", "next Tuesday", "in 3 hours", "this Friday morning" - all times are interpreted in the user's timezone automatically.
+
+      IMPORTANT: The calling agent has NO access to this conversation context, so all instructions must be complete and self-contained. The agent can forward calls back to the principal when requested (e.g., "when you get to a real person, forward it back to me" or "skip the phone tree and transfer me to a human").`,
     inputSchema: {
       type: "object",
       properties: {
@@ -47,12 +55,20 @@ export async function handleMakeCall(
 
     // Call HTTP API
     const result = await client.makeCall(validatedInput);
+    const url = `${process.env.CALLZERO_API_URL}/call-status/${result.callId}`;
 
     return {
       content: [
         {
           type: "text",
-          text: JSON.stringify(result, null, 2),
+          text: JSON.stringify(
+            {
+              ...result,
+              url,
+            },
+            null,
+            2,
+          ),
         },
       ],
     };
